@@ -19,7 +19,7 @@ namespace FinalExam
                 check.Visible = false;
             }
             //scale the form
-            Form1_ResizeEnd(sender, e);
+            Form1_Resize(sender, e);
         }
         public SoundPlayer Player { get; set; }
         /// <summary>
@@ -156,7 +156,7 @@ namespace FinalExam
             Ending
         }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
+        private void Form1_Resize(object sender, EventArgs e)
         {
             //adjust controls to fit the new dimensions
             picBigImage.Size = new Size(this.Width - 35, this.Height - 55);

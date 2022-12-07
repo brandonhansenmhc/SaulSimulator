@@ -58,7 +58,6 @@
             // 
             // picBigImage
             // 
-            this.picBigImage.Image = global::FinalExam.Properties.Resources.saul;
             this.picBigImage.Location = new System.Drawing.Point(12, 12);
             this.picBigImage.Name = "picBigImage";
             this.picBigImage.Size = new System.Drawing.Size(776, 426);
@@ -218,7 +217,7 @@
             this.Name = "Form1";
             this.Text = "Saul Simulator";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
+            this.SizeChanged += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picBigImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
