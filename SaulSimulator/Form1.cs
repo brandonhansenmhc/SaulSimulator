@@ -35,6 +35,8 @@ namespace SaulSimulator
             {
                 check.Visible = false;
             }
+            btnOption1.Visible = false;
+            btnOption2.Visible = false;
             //scale the form
             Form1_Resize(sender, e);
         }
@@ -110,7 +112,9 @@ namespace SaulSimulator
                             lblDialogue.Text += $"{check.Text}, \n";
                         }
                     }
-                    lblDialogue.Text += "That everything? I'll see if I can \nget you off those charges.";
+                    lblDialogue.Text += "That everything?\nAnd how do you plead?";
+                    btnOption1.Text = "Guilty";
+                    btnOption2.Text = "Not Guilty";
                     break;
                 case (int)SaulScene.TrialPart1:
                     PlaySound(JailOpenSound);
@@ -187,31 +191,33 @@ namespace SaulSimulator
                 if (check == chkAssault || check == chkTheft || check == chkInfluencedDriving || check == chkRecklessEndanger)
                 {
                     //move the checkbox to the 3/8 length
-                    check.Left = (int)((double)this.Width * 2.0 / 8.0);
+                    check.Left = (int)(this.Width * 2.0 / 8.0);
                 }
                 else
                 {
                     //move the checkbox to the 5/8 length
-                    check.Left = (int)((double)this.Width * 4.0 / 8.0);
+                    check.Left = (int)(this.Width * 4.0 / 8.0);
                 }
                 //LENGTH RESIZING
                 if (check == chkAssault || check == chkSubstancePoss)
                 {
-                    check.Top = (int)((double)this.Height * 2.0 / 8.0);
+                    check.Top = (int)(this.Height * 2.0 / 8.0);
                 }
                 else if (check == chkTheft || check == chkFirearmPoss)
                 {
-                    check.Top = (int)((double)this.Height * 3.0 / 8.0);
+                    check.Top = (int)(this.Height * 3.0 / 8.0);
                 }
                 else if (check == chkInfluencedDriving|| check == chkCriminalMischief)
                 {
-                    check.Top = (int)((double)this.Height * 4.0 / 8.0);
+                    check.Top = (int)(this.Height * 4.0 / 8.0);
                 }
                 else if (check == chkRecklessEndanger|| check == chkManslaughter)
                 {
-                    check.Top = (int)((double)this.Height * 5.0 / 8.0);
+                    check.Top = (int)(this.Height * 5.0 / 8.0);
                 }//this is so fucking ugly
             }
+            btnOption1.Location = new Point((int)(this.Width * 2.0 / 8.0), this.Height - 70);
+            btnOption2.Location = new Point((int)(this.Width * 4.0 / 8.0), this.Height - 70);
         }
         /// <summary>
         /// Gets a list of all checkboxes on the form and returns true or false based on if any of them are checked.

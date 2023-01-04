@@ -43,6 +43,8 @@
             this.chkCriminalMischief = new System.Windows.Forms.CheckBox();
             this.chkRecklessEndanger = new System.Windows.Forms.CheckBox();
             this.chkManslaughter = new System.Windows.Forms.CheckBox();
+            this.btnOption1 = new System.Windows.Forms.Button();
+            this.btnOption2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBigImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,11 +198,33 @@
             this.chkManslaughter.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkManslaughter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
+            // btnOption1
+            // 
+            this.btnOption1.Location = new System.Drawing.Point(200, 415);
+            this.btnOption1.Name = "btnOption1";
+            this.btnOption1.Size = new System.Drawing.Size(75, 23);
+            this.btnOption1.TabIndex = 13;
+            this.btnOption1.Text = "Yes";
+            this.btnOption1.UseVisualStyleBackColor = true;
+            this.btnOption1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
+            // 
+            // btnOption2
+            // 
+            this.btnOption2.Location = new System.Drawing.Point(376, 415);
+            this.btnOption2.Name = "btnOption2";
+            this.btnOption2.Size = new System.Drawing.Size(75, 23);
+            this.btnOption2.TabIndex = 14;
+            this.btnOption2.Text = "No";
+            this.btnOption2.UseVisualStyleBackColor = true;
+            this.btnOption2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOption2);
+            this.Controls.Add(this.btnOption1);
             this.Controls.Add(this.chkManslaughter);
             this.Controls.Add(this.chkRecklessEndanger);
             this.Controls.Add(this.chkCriminalMischief);
@@ -240,5 +264,7 @@
         private CheckBox chkCriminalMischief;
         private CheckBox chkRecklessEndanger;
         private CheckBox chkManslaughter;
+        private Button btnOption1;
+        private Button btnOption2;
     }
 }
