@@ -176,10 +176,10 @@ namespace SaulSimulator
         private void Form1_Resize(object sender, EventArgs e)
         {
             //adjust controls to fit the new dimensions
-            picBigImage.Size = new Size(this.Width - 35, this.Height - 55);
-            btnNextScene.Top = this.Height - 70;
-            lblAuto.Location = new Point(this.Width - 150, this.Height - 80);
-            lblDialogue.Location = new Point((int)((double)this.Width * 5.75 / 8.0), (int)((double)this.Height * 1.5 / 8.0));
+            picBigImage.Size = new Size(Width - 35, Height - 55);
+            btnNextScene.Top = Height - 70;
+            lblAuto.Location = new Point(Width - 150, Height - 80);
+            lblDialogue.Location = new Point((int)(Width * 5.75 / 8.0), (int)(Height * 1.5 / 8.0));
             foreach (CheckBox? check in Controls.OfType<CheckBox>())
             {
                 //can't use a switch case cause it's not a constant ffs
@@ -187,29 +187,29 @@ namespace SaulSimulator
                 if (check == chkAssault || check == chkTheft || check == chkInfluencedDriving || check == chkRecklessEndanger)
                 {
                     //move the checkbox to the 3/8 length
-                    check.Left = (int)((double)this.Width * 2.0 / 8.0);
+                    check.Left = (int)(Width * 2.0 / 8.0);
                 }
                 else
                 {
                     //move the checkbox to the 5/8 length
-                    check.Left = (int)((double)this.Width * 4.0 / 8.0);
+                    check.Left = (int)(Width * 4.0 / 8.0);
                 }
                 //LENGTH RESIZING
                 if (check == chkAssault || check == chkSubstancePoss)
                 {
-                    check.Top = (int)((double)this.Height * 2.0 / 8.0);
+                    check.Top = (int)(Height * 2.0 / 8.0);
                 }
                 else if (check == chkTheft || check == chkFirearmPoss)
                 {
-                    check.Top = (int)((double)this.Height * 3.0 / 8.0);
+                    check.Top = (int)(Height * 3.0 / 8.0);
                 }
                 else if (check == chkInfluencedDriving|| check == chkCriminalMischief)
                 {
-                    check.Top = (int)((double)this.Height * 4.0 / 8.0);
+                    check.Top = (int)(Height * 4.0 / 8.0);
                 }
                 else if (check == chkRecklessEndanger|| check == chkManslaughter)
                 {
-                    check.Top = (int)((double)this.Height * 5.0 / 8.0);
+                    check.Top = (int)(Height * 5.0 / 8.0);
                 }//this is so fucking ugly
             }
         }
