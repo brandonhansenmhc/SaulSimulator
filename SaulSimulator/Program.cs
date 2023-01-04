@@ -1,4 +1,4 @@
-namespace FinalExam
+namespace SaulSimulator
 {
     internal static class Program
     {

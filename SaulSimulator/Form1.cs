@@ -1,6 +1,6 @@
 using System.Media;
 
-namespace FinalExam
+namespace SaulSimulator
 {
     public partial class Form1 : Form
     {

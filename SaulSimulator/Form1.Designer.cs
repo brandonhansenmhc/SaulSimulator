@@ -1,4 +1,4 @@
-﻿namespace FinalExam
+﻿namespace SaulSimulator
 {
     partial class Form1
     {
