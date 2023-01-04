@@ -8,16 +8,22 @@ namespace SaulSimulator
         public Form1() => InitializeComponent();
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         #region Bitmaps
-        readonly Bitmap picBestGame = SaulSimulator.Properties.Resources.BestGame;
-        readonly Bitmap picClipboard = SaulSimulator.Properties.Resources.cipboard;
-        readonly Bitmap picCourt1 = SaulSimulator.Properties.Resources.court1;
-        readonly Bitmap picCourtFinal = SaulSimulator.Properties.Resources.courtfinal;
-        readonly Bitmap picJail = SaulSimulator.Properties.Resources.jail;
-        readonly Bitmap picLawyerAd = SaulSimulator.Properties.Resources.lawyerad;
-        readonly Bitmap picSaul = SaulSimulator.Properties.Resources.saul;
-        readonly Bitmap picSaulArgument = SaulSimulator.Properties.Resources.saulargument;
-        readonly Bitmap picSaulFinal = SaulSimulator.Properties.Resources.saulfinal;
-        readonly Bitmap picSaulGif = SaulSimulator.Properties.Resources.saulgif;
+        readonly Bitmap picBestGame = Properties.Resources.BestGame;
+        readonly Bitmap picClipboard = Properties.Resources.cipboard;
+        readonly Bitmap picCourt1 = Properties.Resources.court1;
+        readonly Bitmap picCourtFinal = Properties.Resources.courtfinal;
+        readonly Bitmap picJail = Properties.Resources.jail;
+        readonly Bitmap picLawyerAd = Properties.Resources.lawyerad;
+        readonly Bitmap picSaul = Properties.Resources.saul;
+        readonly Bitmap picSaulArgument = Properties.Resources.saulargument;
+        readonly Bitmap picSaulFinal = Properties.Resources.saulfinal;
+        readonly Bitmap picSaulGif = Properties.Resources.saulgif;
+        #endregion
+        #region Sounds
+        readonly UnmanagedMemoryStream JailCloseSound = Properties.Resources.JailCloseSound;
+        readonly UnmanagedMemoryStream JailOpenSound = Properties.Resources.JailOpenSound;
+        readonly UnmanagedMemoryStream SaulTrapRemix = Properties.Resources.saul_trap_remix;
+        readonly UnmanagedMemoryStream SaulCommercial = Properties.Resources.saulcommercial;
         #endregion
         bool AutoScene = false; //used to automatically change scenes
         int intSaulScene = 0; //keeps track of which saul scene we are on
@@ -67,21 +73,21 @@ namespace SaulSimulator
                 case (int)SaulScene.JailTime:
                     lblStoryText.Text = "You were hauled off to jail!";
                     picBigImage.Image = picJail;
-                    PlaySound(Properties.Resources.JailCloseSound);
+                    PlaySound(JailCloseSound);
                     btnNextScene.Text = "Next Scene";
                     break;
                 case (int)SaulScene.LawyerIntro:
                     lblStoryText.Text = "I should get a lawyer... But who?";
                     lblDialogue.Visible = true;
                     lblDialogue.Text = "Hey, inmate.\nNow's the time to talk to your lawyer. \nThat is, if you have one.";
-                    PlaySound(Properties.Resources.saul_trap_remix);
+                    PlaySound(SaulTrapRemix);
                     break;
                 case (int)SaulScene.LawyerAd:
                     lblStoryText.Text = "You recall a friendly voice in your head...";
                     lblDialogue.Visible = false;
                     picBigImage.Image = picLawyerAd;
                     Player.Stop();
-                    PlaySound(Properties.Resources.saulcommercial);
+                    PlaySound(SaulCommercial);
                     break;
                 case (int)SaulScene.CrimeRead:
                     lblStoryText.Text = "Select all crimes that apply.";
@@ -107,7 +113,7 @@ namespace SaulSimulator
                     lblDialogue.Text += "That everything? I'll see if I can \nget you off those charges.";
                     break;
                 case (int)SaulScene.TrialPart1:
-                    PlaySound(Properties.Resources.JailOpenSound);
+                    PlaySound(JailOpenSound);
                     foreach (CheckBox? check in Controls.OfType<CheckBox>())
                     {
                         check.Visible = false;
