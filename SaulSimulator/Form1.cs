@@ -7,7 +7,18 @@ namespace SaulSimulator
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Form1() => InitializeComponent();
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-
+        #region Bitmaps
+        readonly Bitmap picBestGame = SaulSimulator.Properties.Resources.BestGame;
+        readonly Bitmap picClipboard = SaulSimulator.Properties.Resources.cipboard;
+        readonly Bitmap picCourt1 = SaulSimulator.Properties.Resources.court1;
+        readonly Bitmap picCourtFinal = SaulSimulator.Properties.Resources.courtfinal;
+        readonly Bitmap picJail = SaulSimulator.Properties.Resources.jail;
+        readonly Bitmap picLawyerAd = SaulSimulator.Properties.Resources.lawyerad;
+        readonly Bitmap picSaul = SaulSimulator.Properties.Resources.saul;
+        readonly Bitmap picSaulArgument = SaulSimulator.Properties.Resources.saulargument;
+        readonly Bitmap picSaulFinal = SaulSimulator.Properties.Resources.saulfinal;
+        readonly Bitmap picSaulGif = SaulSimulator.Properties.Resources.saulgif;
+        #endregion
         bool AutoScene = false; //used to automatically change scenes
         int intSaulScene = 0; //keeps track of which saul scene we are on
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +42,7 @@ namespace SaulSimulator
             Player = new SoundPlayer(location);
             Player.Play();
         }
-        private void btnNextScene_Click(object sender, EventArgs e)
+        private void ButtonNextScene(object sender, EventArgs e)
         {
             //in case the user clicks the button with autoscene on, we reset the interval
             if (intSaulScene == (int)SaulScene.LawyerIntro)
@@ -55,7 +66,7 @@ namespace SaulSimulator
             {
                 case (int)SaulScene.JailTime:
                     lblStoryText.Text = "You were hauled off to jail!";
-                    picBigImage.Image = Properties.Resources.jail;
+                    picBigImage.Image = picJail;
                     PlaySound(Properties.Resources.JailCloseSound);
                     btnNextScene.Text = "Next Scene";
                     break;
@@ -68,13 +79,13 @@ namespace SaulSimulator
                 case (int)SaulScene.LawyerAd:
                     lblStoryText.Text = "You recall a friendly voice in your head...";
                     lblDialogue.Visible = false;
-                    picBigImage.Image = Properties.Resources.lawyerad;
+                    picBigImage.Image = picLawyerAd;
                     Player.Stop();
                     PlaySound(Properties.Resources.saulcommercial);
                     break;
                 case (int)SaulScene.CrimeRead:
                     lblStoryText.Text = "Select all crimes that apply.";
-                    picBigImage.Image = Properties.Resources.cipboard;
+                    picBigImage.Image = picClipboard;
                     foreach (CheckBox? check in Controls.OfType<CheckBox>())
                     {
                         check.Visible = true;
@@ -102,25 +113,25 @@ namespace SaulSimulator
                         check.Visible = false;
                     }
                     lblDialogue.Text = "May it please the court...";
-                    picBigImage.Image = Properties.Resources.court1;
+                    picBigImage.Image = picCourt1;
                     break;
                 case (int)SaulScene.TrialPart2:
                     lblDialogue.Text = "As you can see from all these facts,\nmy client is innocent!";
-                    picBigImage.Image = Properties.Resources.saulargument;
+                    picBigImage.Image = picSaulArgument;
                     break;
                 case (int)SaulScene.TrialEnd:
                     lblDialogue.Text = "The court finds this case dismissed.\nDefendant is not guilty.";
-                    picBigImage.Image = Properties.Resources.courtfinal;
+                    picBigImage.Image = picCourtFinal;
                     break;
                 case (int)SaulScene.ThankingSaul:
                     lblStoryText.Visible = true;
                     lblStoryText.Text = "Your charges were dropped\nAll thanks to Saul!";
                     lblDialogue.Visible = false;
-                    picBigImage.Image = Properties.Resources.saulfinal;
+                    picBigImage.Image = picSaulFinal;
                     break;
                 case (int)SaulScene.Ending:
                     lblStoryText.Text = "Thanks for playing!";
-                    picBigImage.Image = Properties.Resources.saulgif;
+                    picBigImage.Image = picSaulGif;
                     btnNextScene.Text = "Close Game";
                     break;
                 default:
@@ -209,7 +220,7 @@ namespace SaulSimulator
             return false;
         }
 
-        private void tmrAutoScene_Tick(object sender, EventArgs e)
+        private void TimerAutoScene(object sender, EventArgs e)
         {
             //count down until it reaches 0
             tmrAutoScene.Interval--;
@@ -236,7 +247,7 @@ namespace SaulSimulator
             }
         }
 
-        private void checkboxClick(object sender, EventArgs e)
+        private void CheckBoxClick(object sender, EventArgs e)
         {
             //give more time to the user if they manually select a checkbox
             tmrAutoScene.Interval += 20;

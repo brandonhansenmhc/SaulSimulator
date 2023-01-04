@@ -83,12 +83,12 @@
             this.btnNextScene.Text = "Start Scene";
             this.btnNextScene.UseVisualStyleBackColor = true;
             this.btnNextScene.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
-            this.btnNextScene.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnNextScene_Click);
+            this.btnNextScene.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonNextScene);
             // 
             // tmrAutoScene
             // 
             this.tmrAutoScene.Interval = 150;
-            this.tmrAutoScene.Tick += new System.EventHandler(this.tmrAutoScene_Tick);
+            this.tmrAutoScene.Tick += new System.EventHandler(this.TimerAutoScene);
             // 
             // lblDialogue
             // 
@@ -109,7 +109,7 @@
             this.chkAssault.TabIndex = 5;
             this.chkAssault.Text = "Assault";
             this.chkAssault.UseVisualStyleBackColor = true;
-            this.chkAssault.Click += new System.EventHandler(this.checkboxClick);
+            this.chkAssault.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkAssault.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkSubstancePoss
@@ -121,7 +121,7 @@
             this.chkSubstancePoss.TabIndex = 6;
             this.chkSubstancePoss.Text = "Possession of substances";
             this.chkSubstancePoss.UseVisualStyleBackColor = true;
-            this.chkSubstancePoss.Click += new System.EventHandler(this.checkboxClick);
+            this.chkSubstancePoss.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkSubstancePoss.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkTheft
@@ -133,7 +133,7 @@
             this.chkTheft.TabIndex = 7;
             this.chkTheft.Text = "Theft under $5000";
             this.chkTheft.UseVisualStyleBackColor = true;
-            this.chkTheft.Click += new System.EventHandler(this.checkboxClick);
+            this.chkTheft.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkTheft.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkFirearmPoss
@@ -145,7 +145,7 @@
             this.chkFirearmPoss.TabIndex = 8;
             this.chkFirearmPoss.Text = "Possession of Firearms";
             this.chkFirearmPoss.UseVisualStyleBackColor = true;
-            this.chkFirearmPoss.Click += new System.EventHandler(this.checkboxClick);
+            this.chkFirearmPoss.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkFirearmPoss.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkInfluencedDriving
@@ -157,7 +157,7 @@
             this.chkInfluencedDriving.TabIndex = 9;
             this.chkInfluencedDriving.Text = "Driving under the influence";
             this.chkInfluencedDriving.UseVisualStyleBackColor = true;
-            this.chkInfluencedDriving.Click += new System.EventHandler(this.checkboxClick);
+            this.chkInfluencedDriving.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkInfluencedDriving.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkCriminalMischief
@@ -169,7 +169,7 @@
             this.chkCriminalMischief.TabIndex = 10;
             this.chkCriminalMischief.Text = "Criminal Mischief";
             this.chkCriminalMischief.UseVisualStyleBackColor = true;
-            this.chkCriminalMischief.Click += new System.EventHandler(this.checkboxClick);
+            this.chkCriminalMischief.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkCriminalMischief.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkRecklessEndanger
@@ -181,7 +181,7 @@
             this.chkRecklessEndanger.TabIndex = 11;
             this.chkRecklessEndanger.Text = "Reckless Endangerment";
             this.chkRecklessEndanger.UseVisualStyleBackColor = true;
-            this.chkRecklessEndanger.Click += new System.EventHandler(this.checkboxClick);
+            this.chkRecklessEndanger.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkRecklessEndanger.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // chkManslaughter
@@ -193,7 +193,7 @@
             this.chkManslaughter.TabIndex = 12;
             this.chkManslaughter.Text = "Manslaughter";
             this.chkManslaughter.UseVisualStyleBackColor = true;
-            this.chkManslaughter.Click += new System.EventHandler(this.checkboxClick);
+            this.chkManslaughter.Click += new System.EventHandler(this.CheckBoxClick);
             this.chkManslaughter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_Keypress);
             // 
             // Form1
