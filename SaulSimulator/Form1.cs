@@ -7,7 +7,7 @@ namespace SaulSimulator
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Form1() => InitializeComponent();
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        #region Bitmaps
+        #region Bitmap Image Variables
         readonly Bitmap picBestGame = Properties.Resources.BestGame;
         readonly Bitmap picClipboard = Properties.Resources.cipboard;
         readonly Bitmap picCourt1 = Properties.Resources.court1;
@@ -19,7 +19,7 @@ namespace SaulSimulator
         readonly Bitmap picSaulFinal = Properties.Resources.saulfinal;
         readonly Bitmap picSaulGif = Properties.Resources.saulgif;
         #endregion
-        #region Sounds
+        #region Sound Variables
         readonly UnmanagedMemoryStream JailCloseSound = Properties.Resources.JailCloseSound;
         readonly UnmanagedMemoryStream JailOpenSound = Properties.Resources.JailOpenSound;
         readonly UnmanagedMemoryStream SaulTrapRemix = Properties.Resources.saul_trap_remix;
@@ -42,7 +42,7 @@ namespace SaulSimulator
         /// <summary>
         ///  Play a new sound.
         /// </summary>
-        /// <param name="location">The bitmap of the sound resource.</param>
+        /// <param name="location">The memory stream of the sound resource.</param>
         public void PlaySound(UnmanagedMemoryStream location)
         {
             Player = new SoundPlayer(location);
@@ -216,7 +216,7 @@ namespace SaulSimulator
         /// <summary>
         /// Gets a list of all checkboxes on the form and returns true or false based on if any of them are checked.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if any checkbox is currently checked.</returns>
         public bool AreAnyCheckboxesTicked()
         {
             foreach (CheckBox? check in Controls.OfType<CheckBox>())
@@ -252,7 +252,9 @@ namespace SaulSimulator
                 NextSaulScene();
             }
         }
-
+        /// <summary>
+        /// Runs when any of the 8 checkboxes are checked or unchecked.
+        /// </summary>
         private void CheckBoxClick(object sender, EventArgs e)
         {
             //give more time to the user if they manually select a checkbox
